@@ -1,0 +1,135 @@
+<html>
+<body onload="startGame();">
+<style>
+.Square
+{
+width: 30px;
+height: 30px;
+tex-align:center;
+font-size: 30px;
+font-weight: bold;
+font-family: Verdana;
+color: white;
+padding: 80px;
+background-color: rgba(0,0,0,0.5);
+}
+
+body, html 
+{
+  height: 100%;
+  background: url("background.jpg");
+  height: 100%; 
+  background-position: center top,center bottom;
+  background-size: cover;
+ font-family: Helvetica,sans-serif;
+}
+
+table
+{
+padding: 100px;
+width: 80px;
+height: 80px;
+text-align: center;
+border: 10px;
+border-color: green;
+}
+h1
+{
+letter-spacing: 1;
+font-size: 40px;
+text-transform: uppercase;
+font-family: 'Signika', sans-serif;
+text-align: center;
+color: white;
+}
+.msg
+{
+text-transform: uppercase;
+font-family: 'Signika', sans-serif;
+text-align: center;
+color: white;
+}
+h4
+{
+text-transform: uppercase;
+font-family: 'Signika', sans-serif;
+text-align: center;
+color: white;
+}
+
+
+</style>
+<script>
+function startGame()
+{
+var ch = Math.floor(Math.random() * 2);
+if(ch%2==0) 
+{
+document.turn ="X" ;
+}
+else
+{
+document.turn="O";
+}
+setmessage(document.turn + "   gets to start");
+}
+
+function setmessage(msg)
+{
+document.getElementById("message").innerText = msg;
+}
+
+function nextMove(square)
+{
+if(square.innerText=="")
+{
+square.innerText=document.turn;
+switchTurn();
+}
+else
+{
+setmessage("That square is already used!");
+}
+}
+
+
+function switchTurn()
+{
+if(document.turn=="X")
+{
+document.turn="O";
+}
+else
+{
+document.turn="X";
+}
+setmessage("Its  "+ document.turn + "   's turn ");
+}
+
+
+</script>
+<h1>WELCOME TO MY TIC TAC TOE GAME</h1>
+<h4>LETS BEGIN</h4>
+<div class="msg" id="message">LETS BEGIN!!</div>
+<script>startGame()</script>
+<table border = "1">
+<tr>
+<td id="s1" class="Square" onclick="nextMove(this);"></td>
+<td id="s2" class="Square" onclick="nextMove(this);"></td>
+<td id="s3" class="Square" onclick="nextMove(this);"></td>
+</tr>
+
+<tr>
+<td id="s4" class="Square" onclick="nextMove(this);"></td>
+<td id="s5" class="Square" onclick="nextMove(this);"></td>
+<td id="s6" class="Square" onclick="nextMove(this);"></td>
+</tr>
+
+<tr>
+<td id="s7" class="Square" onclick="nextMove(this);"></td>
+<td id="s8" class="Square" onclick="nextMove(this);"></td>
+<td id="s9" class="Square" onclick="nextMove(this);"></td>
+</tr>
+</table>
+</body>
+</html>
